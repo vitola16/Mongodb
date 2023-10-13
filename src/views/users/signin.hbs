@@ -1,0 +1,82 @@
+<main class="main-content  mt-0">
+  <section>
+    <div class="page-header min-vh-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
+            <div class="card card-plain">
+              <div class="card-header pb-0 text-start">
+                <h4 class="font-weight-bolder">Ingresar</h4>
+                <p class="mb-0">Indica tu email y password para ingresar</p>
+              </div>
+              <div class="card-body">
+
+                <form action="/users/signin" method="POST">
+                  <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="Email" autofocus>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                  </div>
+                  <button class="btn btn-primary btn-block btn-lg w-100 mt-4 mb-0">
+            Ingresar
+          </button>
+                </form>
+
+
+              </div>
+              <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <p class="mb-4 text-sm mx-auto">
+                  No estás registrado?
+                  <a href="/users/signup" class="text-primary text-gradient font-weight-bold">Registrar</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
+            <div
+              class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
+              style="background-image: url('/assets/img/fondologin2.jpg');
+          background-size: cover;">
+              <span class="mask bg-gradient-primary opacity-6"></span>
+              <h4 class="mt-5 text-white font-weight-bolder position-relative">"La destilación Solar es un medio rentable para obtener agua limpia "</h4>
+              <p class="text-white position-relative">Simples en diseño y requieren un mantenimiento mínimo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+{{!--
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="card mt-4 text-center">
+      <div class="card-header">
+        <h1 class="h4">
+          Account Login
+        </h1>
+      </div>
+      <img class=" mx-auto d-block logo m-1" src="/img/logo.png" alt="Logo">
+      <div class="card-body">
+        <form action="/users/signin" method="POST">
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <button class="btn btn-primary btn-block">
+            Ingresar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> --}}

@@ -1,0 +1,164 @@
+<div class="col-md-12 mx-auto">
+  <div class="card text-center">
+    <div class="card-header">
+      <h3>PARÁMETROS DE CÁLCULO DESTILADOR SOLAR HÍBRIDO</h3>
+    </div>
+
+    <style>
+      /* Agrega estilos según tus preferencias */
+      label {
+
+        margin-top: 10px;
+      }
+
+      /* Estilos personalizados para los sliders */
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 20%;
+        height: 15px;
+        background: #ddd;
+        /* Color de fondo de la barra */
+        border-radius: 5px;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .contenedor {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+
+      .columna {
+        flex: 1;
+        padding: 10px;
+        max-width: 300px;
+      }
+
+      .tarjeta {
+        background-color: white;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 1.2em;
+        margin: 0 0 10px;
+      }
+
+      p {
+        font-size: 1em;
+        margin: 0;
+      }
+    </style>
+
+    <script>
+      function mostrarValor(selectorId, outputId) {
+        var slider = document.getElementById(selectorId);
+        var output = document.getElementById(outputId);
+        output.innerHTML = slider.value;
+      }
+    </script>
+
+
+    <body>
+      <div class="contenedor">
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Calor específico del agua (𝑪𝒑)</h2>
+            <p>4187 J/kg°C</p>
+          </div>
+          <!-- Repite esta estructura para las otras tarjetas -->
+        </div>
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Densidad del agua (𝛛)</h2>
+            <p>1000 Kg/m3</p>
+          </div>
+        </div>
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Eficiencia de la resistencia eléctrica</h2>
+            <p>95 %</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedor">
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Absortividad del agua</h2>
+            <p>0,3 Adimensional </p>
+          </div>
+        </div>
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Transmisividad del vidrio </h2>
+            <p>0,9 Adimensional</p>
+          </div>
+        </div>
+      </div>
+    </body>
+
+  </div>
+</div>
+
+<div class="col-md-12 mx-auto">
+  <div class="card text-center">
+    <div class="card-header">
+      <h3>PARÁMETROS DE CÁLCULO EQUIPO FOTOVOLTAICO </h3>
+    </div>
+    <body>
+      <div class="contenedor">
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Días de respaldo requeridos del equipo fotovoltaico</h2>
+            <p>0,5	días</p>
+          </div>
+          <!-- Repite esta estructura para las otras tarjetas -->
+        </div>
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Descarga máxima del banco de baterías (50%)</h2>
+            <p>0,5	Adimensional</p>
+          </div>
+        </div>
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Porcentaje de pérdidas en el Inversor (10%)</h2>
+            <p>0,1	Adimensional</p>
+          </div>
+        </div>
+      </div>
+      <div class="contenedor">
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Porcentaje de pérdidas en el circuito (5%)</h2>
+            <p>0,05	Adimensional</p>
+          </div>
+          <!-- Repite esta estructura para las otras tarjetas -->
+        </div>
+        <div class="columna">
+          <div class="tarjeta">
+            <h2>Porcentaje de Tolerancia (15%)</h2>
+            <p>0,15	Adimensional
+          </div>
+        </div>
+        <div class="columna">
+
+        </div>
+      </div>
+
+
+
+    </body>
+
+  </div>
+</div>
