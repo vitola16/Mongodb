@@ -4,19 +4,17 @@ const router = express.Router();
 
 const {
 
-    irCalcularDimensiones,
-    iracalcular,
-    irparametros,
-    irResultados
+    guardarsensor,
+    registrarsensor,
+    listarsensores
 
 }= require("../controllers/principal.controller");
 
 // Helpers
 const { isAuthenticated } = require("../helpers/auth");
 
-router.get("/principal/calculardimensiones", irCalcularDimensiones);
-router.get("/principal/irparametros", isAuthenticated,irparametros);
-
-router.post("/principal/iracalcular", isAuthenticated, iracalcular);
+router.post("/Guardarsensor", guardarsensor);
+router.get("/Registrarsensor", isAuthenticated,registrarsensor);
+router.get("/Mostrarsensores", isAuthenticated, listarsensores);
 
 module.exports = router;

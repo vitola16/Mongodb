@@ -77,7 +77,7 @@ usersCtrl.renderSigninForm = (req, res) => {
 };
 
 usersCtrl.signin = passport.authenticate("local", {
-    successRedirect: "/principal/irparametros",
+    successRedirect: "/",
     failureRedirect: "/users/signin",
     failureFlash: true
 
