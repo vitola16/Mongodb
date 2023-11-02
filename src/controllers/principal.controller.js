@@ -60,6 +60,17 @@ const {
     req.flash("success_msg", "Producto adicionado correctamente");
     res.redirect("/about");
   }
-};
+  principalCtrl.postValorIoT = async (req, res) => {
+    var DatosSensor = req.body;
+    console.log (DatosSensor);
+    var token = DatosSensor.token;
 
+     respuesta = {
+      error: false,
+      codigo: 200,
+      mensaje: "Datos Recibidos"
+     };
+  };    
+};
+res.send(respuesta);
 module.exports = principalCtrl;
