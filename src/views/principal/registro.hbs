@@ -1,33 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Formulario de Registro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de caracterizacion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        .question {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .add-question, .remove-question, .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .remove-question {
+            background-color: #ff3333;
+            margin-left: 10px;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h2>Formulario de Registro</h2>
-    <form action="/Guardarsensor" method="post">
-        <!-- Campo para el nombre -->
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
-        
-        <!-- Campo para la ubicación -->
-        <label for="ubicacion">Ubicación:</label>
-        <input type="text" id="ubicacion" name="ubicacion" required><br><br>
-        
-        <!-- Campo para el tipo -->
-        <label for="tipo">Tipo:</label>
-        <input type="text" id="tipo" name="tipo" required><br><br>
-        
-        <!-- Campo para la latitud -->
-        <label for="latitud">Latitud:</label>
-        <input type="string" id="latitud" name="latitud" required><br><br>
-        
-        <!-- Campo para la longitud -->
-        <label for="longitud">Longitud:</label>
-        <input type="string" id="longitud" name="longitud" required><br><br>
-        
-        <!-- Botón para guardar -->
-        <input type="submit" value="Guardar">
-    </form>
+
+<form id="formulario">
+    <div id="preguntas">
+        <!-- Campos ya configurados -->
+        <div class="question">
+            <label>Pregunta de Texto:</label>
+            <input type="text" name="pregunta-1">
+        </div>
+        <div class="question">
+            <label>Pregunta de Opción Múltiple:</label>
+            <input type="radio" name="pregunta-2" value="Opción 1"><label>Opción 1</label>
+            <input type="radio" name="pregunta-2" value="Opción 2"><label>Opción 2</label>
+            <input type="radio" name="pregunta-2" value="Opción 3"><label>Opción 3</label>
+        </div>
+    </div>
+
+    <button type="button" class="add-question" onclick="agregarPregunta()">Agregar Pregunta</button>
+    <button type="button" class="remove-question" onclick="eliminarUltimaPregunta()">Eliminar Última Pregunta</button>
+    <button type="button" class="submit-button" onclick="enviarFormulario()">Enviar</button>
+</form>
+
+<script>
+    function agregarPregunta() {
+        var preguntasDiv = document.getElementById("preguntas");
+        var nuevaPreguntaDiv = document.createElement("div");
+        nuevaPreguntaDiv.classList.add("question");
+
+        var opciones = [
+            { tipo: "text", label: "Pregunta de Texto" },
+            { tipo: "radio", label: "Pregunta de Opción Múltiple", valores: ["Opción 1", "Opción 2", "Opción 3"] }
+            //  agregar más tipos de campos configurados aquí
+        ];
+
+        var seleccion = prompt("Selecciona el tipo de campo:\n" +
+            opciones.map((opcion, index) => `${index + 1}. ${opcion.label}`).join("\n"));
+
+        if (seleccion !== null) {
+            var tipoCampo = opciones[parseInt(seleccion) - 1];
+            if (tipoCampo) {
+                if (tipoCampo.tipo === "text") {
+                    nuevaPreguntaDiv.innerHTML = `<label>${tipoCampo.label}:</label><input type="text" name="pregunta-${preguntasDiv.childElementCount + 1}">`;
+                } else if (tipoCampo.tipo === "radio") {
+                    var opcionesHTML = tipoCampo.valores.map(opcion => `<input type="radio" name="pregunta-${preguntasDiv.childElementCount + 1}" value="${opcion}"><label>${opcion}</label>`).join("");
+                    nuevaPreguntaDiv.innerHTML = `<label>${tipoCampo.label}:</label>${opcionesHTML}`;
+                }
+
+                preguntasDiv.appendChild(nuevaPreguntaDiv);
+            } else {
+                alert("Selección inválida");
+            }
+        }
+    }
+
+    function eliminarUltimaPregunta() {
+        var preguntasDiv = document.getElementById("preguntas");
+        if (preguntasDiv.children.length > 0) {
+            preguntasDiv.removeChild(preguntasDiv.lastChild);
+        }
+    }
+
+    function enviarFormulario() {
+        var formulario = document.getElementById("formulario");
+        var formData = new FormData(formulario);
+
+        //  enviar los datos a un servidor.
+
+        // Ejemplo: Imprimir los datos en la consola.
+        for (var pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+    }
+</script>
+
 </body>
 </html>
