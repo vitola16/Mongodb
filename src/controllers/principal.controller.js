@@ -1,62 +1,46 @@
 const principalCtrl = {};
-const Sensor = require("../models/Sensor");
+const Equipo = require("../models/Equipo");
 
 principalCtrl.registrarsensor =  (req, res) => {
   res.render('principal/registro');
 };
 
 principalCtrl.listarsensores = async (req, res) => {
-  const listadosensores = await Sensor.find();
+  const listadosensores = await Equipo.find();
   console.log(listadosensores)
   res.render('principal/listado',(listadosensores))
 };
 principalCtrl.guardarsensor = async (req, res) => {
 const {
- nombre,
- ubicacion, 
- tipo,
- latitud,
- longitud
+ consumo,
+ tipos
 
  } = req.body;
  
 
   const errors = [];
-  if (!nombre) {
-    errors.push({ text: "Por favor indique Nombre del sensor" });
-  }
-  if (!ubicacion) {
+  if (!consumo) {
     errors.push({ text: "Por favor indique la ubicacion del docente" });
   }
-  if (!tipo) {
-    errors.push({ text: "Por favor indique tipo producto" });
-  }
-  if (!latitud) {
-    errors.push({ text: "Por favor indique la latitud del producto" });
-  }
-  if (!longitud) {
-    errors.push({ text: "Por favor indique la longitud publicación" });
+  if (!tipos) {
+    errors.push({ text: "Por favor indique la ubicacion del docente" });
   }
 
-  
   if (errors.length > 0) {
     res.render("/Registrarsensor", {
-      nombre,
-      ubicacion,
-      tipo,
-      latitud,
-      longitud
+      consumo,
+      tipos
+
     });
   } else {
-    const newSensor = new Sensor({
-      nombre,
-      ubicacion,
-      tipo,
-      latitud,
-      longitud 
+    const newEquipo = new Equipo({
+
+      consumo,
+      tipo
+ 
     });
-    newSensor.user = req.user.id;
-    await newSensor.save();
+    newEquipo.user = req.user.id;
+    await newEquipo.save();
     req.flash("success_msg", "Producto adicionado correctamente");
     res.redirect("/about");
   }
