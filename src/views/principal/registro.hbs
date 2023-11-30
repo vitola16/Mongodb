@@ -1,140 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Formulario</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Propietario y Equipos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
 
-        form {
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    h1, h2 {
+      color: #333;
+    }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
+    form {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+    }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
-            box-sizing: border-box;
-        }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
 
-        .question {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
 
-        .button-container {
-            margin-bottom: 20px;
-        }
+    .equipo {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
 
-        .button-container button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
+    .eliminarEquipo {
+      background-color: #ff5252;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
 
-        .button-container button:hover {
-            background-color: #45a049;
-        }
-
-        .remove-question, .submit-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .remove-question:hover, .submit-button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    #agregarEquipo, #guardarDatos {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-
-<form id="formulario">
-    <div id="preguntas">
-        <!-- Campos ya configurados -->
-        <div class="question">
-            <label>Consumo promedio del Equipos:</label>
-            <input type="text" name="consumo">
-        </div>
-        <div class="question">
-            <label>Seleccione el tipo de Equipo:</label>
-            <select name="tipos">
-                <option value="Opción 1">Congelador</option>
-                <option value="Opción 2">Aire Acondicionado</option>
-                <option value="Opción 3">Neveras</option>
-            </select>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Propietario y Equipos</title>
+</head>
+<body>
+  <h1>Formulario de Propietario y Equipos</h1>
+  <form id="propietarioForm">
+    <label for="propietario">Propietario:</label>
+    <input type="text" id="propietario" name="propietario" required>
+    
+    <div id="equiposContainer">
+      <h2>Equipos:</h2>
     </div>
+    
+    <button type="button" id="agregarEquipo">Agregar Equipo</button>
+    
+    <button type="button" id="guardarDatos">Guardar</button>
+  </form>
+  
+  <script>
+    let equipoCounter = 1;
 
-    <div class="button-container">
-        <button type="button" onclick="agregarPregunta('text')">Pregunta de Texto</button>
-        <button type="button" onclick="agregarPregunta('select')">Pregunta de Selección</button>
-        <!-- Puedes agregar más botones para tipos de preguntas adicionales aquí -->
-    </div>
+    document.getElementById('agregarEquipo').addEventListener('click', function() {
+      const equiposContainer = document.getElementById('equiposContainer');
+      const nuevoEquipoDiv = document.createElement('div');
+      nuevoEquipoDiv.className = 'equipo';
+      
+      nuevoEquipoDiv.innerHTML = `
+        <label for="numEquipo">Número de Equipo:</label>
+        <input type="text" name="equipos[${equipoCounter}][numEquipo]" value="${equipoCounter}" readonly>
+        
+        <label for="consumo">Consumo:</label>
+        <input type="number" name="equipos[${equipoCounter}][consumo]" required>
+        
+        <label for="nombreEquipo">Nombre de Equipo:</label>
+        <input type="text" name="equipos[${equipoCounter}][nombreEquipo]" required>
+        
+        <label for="referencia">Referencia:</label>
+        <input type="text" name="equipos[${equipoCounter}][referencia]" required>
+        
+        <button type="button" class="eliminarEquipo">Eliminar Equipo</button>
+      `;
+      
+      equiposContainer.appendChild(nuevoEquipoDiv);
+      
+      // Agregar evento para eliminar el equipo
+      nuevoEquipoDiv.querySelector('.eliminarEquipo').addEventListener('click', function() {
+        equiposContainer.removeChild(nuevoEquipoDiv);
+      });
 
-    <button type="button" class="remove-question" onclick="eliminarUltimaPregunta()">Eliminar Última Pregunta</button>
-    <button type="button" class="submit-button" onclick="enviarFormulario()">Enviar</button>
-</form>
+      equipoCounter++; // Incrementar el contador de equipos
+    });
 
-<script>
-    function agregarPregunta(tipo) {
-        var preguntasDiv = document.getElementById("preguntas");
-        var nuevaPreguntaDiv = document.createElement("div");
-        nuevaPreguntaDiv.classList.add("question");
+   document.getElementById('guardarDatos').addEventListener('click', function() {
+    const propietario = document.getElementById('propietario').value;
+    const equipos = Array.from(document.querySelectorAll('.equipo')).map((equipoDiv, index) => ({
+      numEquipo: equipoDiv.querySelector('input[name^="equipos["]').value,
+      consumo: equipoDiv.querySelector('input[name^="equipos["][name$="[consumo]"]').value,
+      nombreEquipo: equipoDiv.querySelector('input[name^="equipos["][name$="[nombreEquipo]"]').value,
+      referencia: equipoDiv.querySelector('input[name^="equipos["][name$="[referencia]"]').value,
+    }));
 
-        if (tipo === "text") {
-            nuevaPreguntaDiv.innerHTML = `<label>Pregunta de Texto:</label><input type="text" name="pregunta-${preguntasDiv.childElementCount + 1}">`;
-        } else if (tipo === "select") {
-            nuevaPreguntaDiv.innerHTML = `<label>Pregunta de Selección:</label>
-                <select name="pregunta-${preguntasDiv.childElementCount + 1}">
-                    <option value="Opción 1">Opción 1</option>
-                    <option value="Opción 2">Opción 2</option>
-                    <option value="Opción 3">Opción 3</option>
-                </select>`;
-        }
+    const datos = {
+      propietario,
+      equipos,
+    };
 
-        preguntasDiv.appendChild(nuevaPreguntaDiv);
-    }
-
-    function eliminarUltimaPregunta() {
-        var preguntasDiv = document.getElementById("preguntas");
-        if (preguntasDiv.children.length > 0) {
-            preguntasDiv.removeChild(preguntasDiv.lastChild);
-        }
-    }
-
-    function enviarFormulario() {
-       form action="/guardarsensor" method="POST"
-    }
-</script>
-
+    // Enviar los datos al servidor
+    fetch('/Guardarequipo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(datos),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Respuesta del servidor:', data);
+      })
+      .catch(error => {
+        console.error('Error al enviar los datos al servidor:', error);
+      });
+  });
+  </script>
 </body>
 </html>
-
+</body>
+</html>

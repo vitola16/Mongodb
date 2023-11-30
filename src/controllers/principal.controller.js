@@ -1,5 +1,6 @@
 const principalCtrl = {};
 const Equipo = require("../models/Equipo");
+// Asegúrate de que la ruta sea correcta
 
 principalCtrl.registrarsensor =  (req, res) => {
   res.render('principal/registro');
@@ -11,39 +12,30 @@ principalCtrl.listarsensores = async (req, res) => {
   res.render('principal/listado',(listadosensores))
 };
 principalCtrl.guardarsensor = async (req, res) => {
-const {
- consumo,
- tipos
 
- } = req.body;
- 
+  try {
+    // Obtén los datos del formulario desde la solicitud
+    const { propietario, equipos } = req.body;
 
-  const errors = [];
-  if (!consumo) {
-    errors.push({ text: "Por favor indique la ubicacion del docente" });
-  }
-  if (!tipos) {
-    errors.push({ text: "Por favor indique la ubicacion del docente" });
-  }
-
-  if (errors.length > 0) {
-    res.render("/Registrarsensor", {
-      consumo,
-      tipos
-
+    // Crea un nuevo registro de propietario
+    const nuevoPropietario = new Equipo({
+      propietario,
+      equipos,
     });
-  } else {
-    const newEquipo = new Equipo({
 
-      consumo,
-      tipo
- 
-    });
-    newEquipo.user = req.user.id;
-    await newEquipo.save();
-    req.flash("success_msg", "Producto adicionado correctamente");
-    res.redirect("/about");
+    // Guarda el propietario en la base de datos
+    await nuevoPropietario.save();
+
+    res.status(201).json({ message: 'Propietario y equipos guardados con éxito' });
+  } catch (error) {
+    console.error('Error al guardar el propietario y equipos:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 
-  };    
+
+};
+
+
+
+   
 module.exports = principalCtrl;
