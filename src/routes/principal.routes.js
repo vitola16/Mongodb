@@ -10,9 +10,11 @@ const {
 
 // Helpers
 const { isAuthenticated } = require("../helpers/auth");
-
+// ruta para el boton guardar
 router.post("/Guardarequipo", guardarequipo);
+// ruta para registrar un nuevo equipo
 router.get("/Registrarequipo", isAuthenticated,registrarequipos);
+// ruta para mostrar los equipos registrados
 router.get("/Mostrarequipos", isAuthenticated, listarequipos);
 
 

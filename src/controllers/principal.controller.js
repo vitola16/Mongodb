@@ -8,8 +8,8 @@ principalCtrl.registrarequipos =  (req, res) => {
 
 principalCtrl.listarequipos = async (req, res) => {
   const listadosensores = await Equipo.find();
-  console.log(listadosensores)
-  res.render('principal/listado',(listadosensores))
+  //console.log(listadosensores)
+  res.render('principal/listado',{listadosensores})
 };
 principalCtrl.guardarequipo = async (req, res) => {
 
