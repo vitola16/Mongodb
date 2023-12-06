@@ -4,7 +4,8 @@ const {
 
     guardarequipo,
     registrarequipos,
-    listarequipos
+    listarequipos,
+    deleteinterfaz
 
 }= require("../controllers/principal.controller");
 
@@ -16,6 +17,7 @@ router.post("/Guardarequipo", guardarequipo);
 router.get("/Registrarequipo", isAuthenticated,registrarequipos);
 // ruta para mostrar los equipos registrados
 router.get("/Mostrarequipos", isAuthenticated, listarequipos);
-
+// eliminar equipos ya resgistrados
+// router.delete("/interfaz/delete-sensor/:id", deleteinterfaz , isAuthenticated);
 
 module.exports = router;
