@@ -2,16 +2,16 @@ const principalCtrl = {};
 const Equipo = require("../models/Equipo");
 // Asegúrate de que la ruta sea correcta
 
-principalCtrl.registrarsensor =  (req, res) => {
+principalCtrl.registrarequipos =  (req, res) => {
   res.render('principal/registro');
 };
 
-principalCtrl.listarsensores = async (req, res) => {
+principalCtrl.listarequipos = async (req, res) => {
   const listadosensores = await Equipo.find();
   console.log(listadosensores)
   res.render('principal/listado',(listadosensores))
 };
-principalCtrl.guardarsensor = async (req, res) => {
+principalCtrl.guardarequipo = async (req, res) => {
 
   try {
     // Obtén los datos del formulario desde la solicitud
