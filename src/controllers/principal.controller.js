@@ -5,17 +5,11 @@ const Equipo = require("../models/Equipo");
 principalCtrl.registrarequipos =  (req, res) => {
   res.render('principal/registro');
 };
-// // interfazCtrl.deleteinterfaz = async (req , res ) => {
-// //   console.log(req.params.id)
-// // await Interfaz.findByIdAndDelete(req.params.id);
-// // const borrar = await DatosIoT.deleteMany({ token :req.params.id });
-// // console.log(borrar)
-// // res.redirect('/interfaz')
-// };
+
 principalCtrl.listarequipos = async (req, res) => {
-  const listadosensores = await Equipo.find();
+  const listadoequipos = await Equipo.find();
   //console.log(listadosensores)
-  res.render('principal/listado',{listadosensores})
+  res.render('principal/listado',{listadoequipos})
 };
 principalCtrl.guardarequipo = async (req, res) => {
 

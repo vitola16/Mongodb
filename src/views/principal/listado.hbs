@@ -1,33 +1,42 @@
-
+<!-- Asumiendo que 'propietarios' es el array de propietarios -->
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Nombre Interfaz</th>
-      <th scope="col">Ubicación</th>
-      <th scope="col">Medidas</th>
-      <th scope="col">Token</th>
-      <th scope="col">Visualizar</th>
-      <th scope="col">Editar</th>
-      <th scope="col">Eliminar</th>
+      <th scope="col" style="color: black;">Propietario</th>
+      <th scope="col" style="color: black;">Equipos</th>
+      <th scope="col" style="color: black;">Visualizar</th>
     </tr>
   </thead>
-  
-{{!-- {{#each interfaz}}
   <tbody>
-    <tr class="table-active">
-      <th scope="row">{{name}}</th>
-      <td>{{ubicacion}}</td>
-      <td>{{sensor_1}}  {{sensor_2}}  {{sensor_3}} </td>
-      <td>{{sensor_codigo}}</td>
-      <td><a href='/interfaz/visulizar-sensor/{{_id}}' class = "btn btn-block" style="background-color: #B0E57C; color: #fff;">Visualizar</a></td>
-      <td><a href='/interfaz/edit-sensor/{{_id}}' class = "btn btn-block" style="background-color: #B0E57C; color: #fff;">Editar</a></td>
-   <td>
-  <form action='/interfaz/delete-sensor/{{_id}}?_method=DELETE' method="post" id="deleteForm{{_id}}">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="button" class="btn btn-danger" onclick="confirmDelete('{{_id}}')">
-      Delete
-    </button>
-  </form>
-</td>
-      
-    </tr> --}}
+    {{#each listadoequipos}}
+      <tr class="table-active">
+        <td style="color: black;">{{propietario}}</td>
+        <td>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Número de Equipo</th>
+                <th>Consumo</th>
+                <th>Nombre de Equipo</th>
+                <th>Referencia</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each equipos}}
+                <tr>
+                  <td style="color: black;">{{numEquipo}}</td>
+                  <td style="color: black;">{{consumo}}</td>
+                  <td style="color: black;">{{nombreEquipo}}</td>
+                  <td style="color: black;">{{referencia}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <a href='/interfaz/visualizar-propietario/{{_id}}' class="btn btn-block" style="background-color: #007BFF; color: #fff;">Visualizar consumo total</a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
