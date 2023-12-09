@@ -18,6 +18,6 @@ router.get("/Registrarequipo", isAuthenticated,registrarequipos);
 // ruta para mostrar los equipos registrados
 router.get("/Mostrarequipos", isAuthenticated, listarequipos);
 // eliminar equipos ya resgistrados
-
+router.delete("/delete-equipo/:id", deleteequipo , isAuthenticated);
 
 module.exports = router;

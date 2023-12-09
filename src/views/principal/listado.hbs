@@ -5,6 +5,7 @@
       <th scope="col" style="color: black;">Propietario</th>
       <th scope="col" style="color: black;">Equipos</th>
       <th scope="col" style="color: black;">Visualizar</th>
+      <th scope="col" style="color: black;">Eliminar</th>
     </tr>
   </thead>
   <tbody>
@@ -34,9 +35,24 @@
           </table>
         </td>
         <td>
-          <a href='/interfaz/visualizar-propietario/{{_id}}' class="btn btn-block" style="background-color: #007BFF; color: #fff;">Visualizar consumo total</a>
+          <a href='/interfaz/visualizar-propietario/{{_id}}' class="btn btn-block" style="background-color: #007BFF; color: #fff;">Visualizar</a>
+        </td>
+        <td>
+          <form action='/delete-equipo/{{_id}}?_method=DELETE' method="POST" id="deleteForm{{_id}}">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="button" class="btn btn-danger" onclick="confirmDelete('{{_id}}')">
+              Delete
+            </button>
+          </form>
         </td>
       </tr>
     {{/each}}
   </tbody>
-</table>
+</table> 
+<script>
+  function confirmDelete(sensorId) {
+    if (confirm("¿Estás seguro de que deseas eliminar este elemento?")) {
+      document.getElementById("deleteForm" + sensorId).submit();
+    }
+  }
+</script>

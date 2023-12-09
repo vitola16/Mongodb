@@ -5,6 +5,12 @@ const Equipo = require("../models/Equipo");
 principalCtrl.registrarequipos =  (req, res) => {
   res.render('principal/registro');
 };
+principalCtrl.deleteequipo = async (req , res ) => {
+  await Equipo.findByIdAndDelete(req.params.id);
+  res.redirect('/Mostrarequipos')
+
+};
+
 
 principalCtrl.listarequipos = async (req, res) => {
   const listadoequipos = await Equipo.find();
