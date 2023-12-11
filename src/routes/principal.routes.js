@@ -5,7 +5,9 @@ const {
     guardarequipo,
     registrarequipos,
     listarequipos,
-    deleteequipo
+    deleteequipo,
+    visualizar,
+   
 
 }= require("../controllers/principal.controller");
 
@@ -19,5 +21,8 @@ router.get("/Registrarequipo", isAuthenticated,registrarequipos);
 router.get("/Mostrarequipos", isAuthenticated, listarequipos);
 // eliminar equipos ya resgistrados
 router.delete("/delete-equipo/:id", deleteequipo , isAuthenticated);
+
+router.get("/visualizar-/:id", visualizar, isAuthenticated);
+
 
 module.exports = router;

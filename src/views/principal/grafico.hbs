@@ -1,0 +1,23 @@
+<!-- Contenedor para la gráfica -->
+<div id="miGrafica"></div>
+
+<!-- Incluir Highcharts -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    Highcharts.chart('miGrafica', {
+      chart: {
+        type: 'pie'
+      },
+      title: {
+        text: 'Consumo por Equipo'
+      },
+      series: [{
+        name: 'Consumo',
+        colorByPoint: true,
+        data: {{{json equipos}}}
+      }]
+    });
+  });
+</script>
