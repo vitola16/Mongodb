@@ -7,8 +7,10 @@
     }
 </style>
 
-
 <div class="container-fluid py-4">
+    <div class="row">
+        <!-- ... (tus tarjetas existentes) ... -->
+        <div class="container-fluid py-4">
     <div class="row">
         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
             <div class="card">
@@ -16,13 +18,13 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Agua destilada</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Ventajas de esta comunidad </p>
                                 <h5 class="font-weight-bolder">
-                                    32
+                                    
                                 </h5>
                                 <p class="mb-0">
-                                    <span class="text-success text-sm font-weight-bolder">+55%</span>
-                                    que año anterior
+                                    <span class="text-success text-sm font-weight-bolder"></span>
+                                    permite llevar un historial de los equipos de su empresa.
                                 </p>
                             </div>
                         </div>
@@ -43,11 +45,11 @@
                             <div class="numbers">
                                 <p class="text-sm mb-0 text-uppercase font-weight-bold">Equipos Registrados</p>
                                 <h5 class="font-weight-bolder">
-                                    480
+                                    2
                                 </h5>
                                 <p class="mb-0">
-                                    <span class="text-success text-sm font-weight-bolder">+3%</span>
-                                    en la última semana
+                                    <span class="text-success text-sm font-weight-bolder"></span>
+                                    
                                 </p>
                             </div>
                         </div>
@@ -66,13 +68,109 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Energía generada</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Energía Consumida</p>
                                 <h5 class="font-weight-bolder">
-                                    +45 kW
+                                    1194 kW
                                 </h5>
                                 <p class="mb-0">
-                                    <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                                    que el mes anterior
+                                    <span class="text-danger text-sm font-weight-bolder"></span>
+                                    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                                <i class="fa fa-bolt text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.card').hover(
+            function () {
+                // Al pasar el mouse sobre la tarjeta
+                $(this).find('.mb-0').slideDown();
+            },
+            function () {
+                // Al retirar el mouse de la tarjeta
+                $(this).find('.mb-0').slideUp();
+            }
+        );
+    });
+</script>
+
+
+{{!-- <div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Ventajas de esta comunidad </p>
+                                <h5 class="font-weight-bolder">
+                                    
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-success text-sm font-weight-bolder"></span>
+                                    permite llevar un historial de los equipos de su empresa y observar el consumo  electrico generado por ese equipo
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
+                                <i class="fa fa-users text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Equipos Registrados</p>
+                                <h5 class="font-weight-bolder">
+                                    2
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-success text-sm font-weight-bolder"></span>
+                                    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-4 text-end">
+                            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                                <i class="fa fa-user-plus text-lg opacity-10" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="numbers">
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Energía Consumida</p>
+                                <h5 class="font-weight-bolder">
+                                    1194 kW
+                                </h5>
+                                <p class="mb-0">
+                                    <span class="text-danger text-sm font-weight-bolder"></span>
+                                    
                                 </p>
                             </div>
                         </div>
@@ -91,12 +189,12 @@
                     <div class="row">
                         <div class="col-8">
                             <div class="numbers">
-                                <p class="text-sm mb-0 text-uppercase font-weight-bold">Beneficios</p>
+                                <p class="text-sm mb-0 text-uppercase font-weight-bold"></p>
                                 <h5 class="font-weight-bolder">
-                                    +$56 Millones
+                                    
                                 </h5>
                                 <p class="mb-0">
-                                    <span class="text-success text-sm font-weight-bolder">+5%</span> mes anterior
+                                    <span class="text-success text-sm font-weight-bolder"></span> 
                                 </p>
                             </div>
                         </div>
@@ -109,7 +207,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
             <div class="card z-index-2 h-100">
@@ -121,30 +219,32 @@
                     dentro de estas empresas, en donde la eficiencia y el compromomiso con el cliente siempre sera primordial.
                     <br>
                     <br>
-                    La 
+                    
                     <br>
                     <br>
                     <h5>Lo novedoso del software</h5>
-                    El software permite 
+                    El software permite tener a la mano un historial completo de los equipos de su empresa, tambien podra observar 
+                    cuanto consume cada equipo y como estan distribuidos en caraga energetica, todo esto desde la facilidad en sus manos, 
+                    con graficas muy intuitivas y confiables.
                     <br>
                     <br>
                 </div>
             </div>
         </div>
-        <div class="col-lg-5">
+         <div class="col-lg-5">
             <div class="card card-carousel overflow-hidden h-100 p-0">
                 <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
                     <div class="carousel-inner border-radius-lg h-100">
-                        <div class="carousel-item h-100 active" style="background-image: url('/assets/img/real1.jpg');
+                         <div class="carousel-item h-100 active" style="background-image: url('/assets/img/u3.jpg'); 
       background-size: cover;">
                             <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                 <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                     <i class="ni ni-camera-compact text-dark opacity-10"></i>
-                                </div>
+                                </div> 
 
                             </div>
                         </div>
-                        <div class="carousel-item h-100" style="background-image: url('./assets/img/real2.jpg');
+                        <div class="carousel-item h-100" style="background-image: url('./assets/img/u1.jpg');
       background-size: cover;">
                             <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                 <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
@@ -155,7 +255,7 @@
 
                             </div>
                         </div>
-                        <div class="carousel-item h-100" style="background-image: url('./assets/img/real3.jpg');
+                        <div class="carousel-item h-100" style="background-image: url('./assets/img/u2.jpg');
       background-size: cover;">
                             <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                 <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
@@ -163,17 +263,17 @@
                                 </div>
 
 
-                            </div>
+                            {{!-- </div>
                         </div>
                         <div class="carousel-item h-100" style="background-image: url('./assets/img/real4.jpg');
       background-size: cover;">
                             <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                                 <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                                     <i class="ni ni-bulb-61 text-dark opacity-10"></i>
-                                </div>
+                                </div> --}}
 
 
-                            </div>
+                            {{!-- </div> --}}
                         </div>
 
                     </div>
