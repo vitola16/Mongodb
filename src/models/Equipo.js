@@ -12,6 +12,14 @@ const equipoSchema = new mongoose.Schema({
 const propietarioSchema = new mongoose.Schema({
   propietario: { type: String, required: true },
   equipos: [equipoSchema], // Un arreglo de objetos de equipo
+  totalConsumo: { type: Number, default: 0 }, // Nuevo campo para almacenar la suma total
+});
+
+// Middleware para actualizar la suma total antes de guardar
+propietarioSchema.pre('save', function (next) {
+  // Calcula la suma total de consumo
+  this.totalConsumo = this.equipos.reduce((sum, equipo) => sum + equipo.consumo, 0);
+  next();
 });
 
 // Crea el modelo 'Propietario' utilizando el esquema del propietario

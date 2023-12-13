@@ -54,15 +54,15 @@ const datosParaGrafica = Object.keys(sumasPorEquipo).map(key => ({
   }
 };
 
-
-
-  
-
+// En tu controlador
 principalCtrl.listarequipos = async (req, res) => {
   const listadoequipos = await Equipo.find();
-  //console.log(listadosensores)
-  res.render('principal/listado',{listadoequipos})
+  console.log(listadoequipos)
+res.render('principal/listado',{listadoequipos})
 };
+
+
+
 principalCtrl.guardarequipo = async (req, res) => {
 
   try {
@@ -77,6 +77,7 @@ principalCtrl.guardarequipo = async (req, res) => {
 
     // Guarda el propietario en la base de datos
     await nuevoPropietario.save();
+        // Obtén la lista actualizada de propietarios después de guardar
     req.flash ('success_msg','Equipo Registrado Correctamente')
     res.status(201).json({ message: 'Propietario y equipos guardados con éxito' });
   } catch (error) {

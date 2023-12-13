@@ -1,9 +1,10 @@
-<!-- Asumiendo que 'propietarios' es el array de propietarios -->
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col" style="color: black;">Propietario</th>
       <th scope="col" style="color: black;">Equipos</th>
+      <th scope="col" style="color: black;">Total Consumo</th>
       <th scope="col" style="color: black;">Visualizar</th>
       <th scope="col" style="color: black;">Eliminar</th>
     </tr>
@@ -11,7 +12,7 @@
   <tbody>
     {{#each listadoequipos}}
       <tr class="table-active">
-        <td style="color: black;">{{propietario}}</td>
+        <td class="text-center" style="color: black;">{{propietario}}</td>
         <td>
           <table class="table">
             <thead>
@@ -34,6 +35,7 @@
             </tbody>
           </table>
         </td>
+        <td class="text-center" style="color: black;">{{totalConsumo}}</td> <!-- Nueva columna para la sumatoria de consumo -->
         <td>
           <a href='/visualizar-/{{_id}}' class="btn btn-block" style="background-color: #007BFF; color: #fff;">Visualizar</a>
         </td>
